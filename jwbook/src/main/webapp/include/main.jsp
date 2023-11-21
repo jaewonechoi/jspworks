@@ -7,7 +7,7 @@
 <title>메인 페이지입니다...</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp" %>v
 	<h2>방문을 환영합니다..</h2>
 	<%@ include file="footer.jsp" %>
 </body>
