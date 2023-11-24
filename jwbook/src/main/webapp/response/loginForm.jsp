@@ -25,7 +25,7 @@ ul li{
 			</li>
 			<li>
 				<!-- input type="submit" value="로그인"> -->
-				<button>로그인</button>
+				<button type="submit">로그인</button>
 			</li>
 		</ul>
 	</form>	

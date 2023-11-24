@@ -10,7 +10,8 @@
 	<form action="calcProcess.jsp" method="post">
 		<label for="num">숫자</label>
 		<input type="text" id="num" name="num">
-		<button>계산</button>
+		<input type="submit" value="계산">
+		<!-- <button>계산</button> -->
 	</form>
 </body>
 </html>
