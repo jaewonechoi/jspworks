@@ -8,7 +8,7 @@
 	
 	if(result){	//이메일이 있으면 세션 발급(세션이름 - sessionId)
 		session.setAttribute("sessionId", email);
-		response.sendRedirect("addrList.jsp");
+		response.sendRedirect("addrList.jsp");                                              
 	}else {
 		out.println("<script>");
 		out.println("alert('아이디나 비밀번호가 일치하지 않습니다')");
