@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 가입 폼 만들기</title>
+<style>
+	h2{
+		border-radius: 5px;
+		background-color: wheat;
+		text-align: center;
+		padding: 15px 0;
+	}
+	#regform{
+		padding: 15px 20px;
+		width: 50%;
+		margin: auto;
+		border-radius: 10px;
+		background-color: sandybrown;
+	}
+</style>
+<script>
+	function signUp(){
+		let name = document.form1.name.value;
+		let email = document.form1.email.value;
+			
+			if(name == "" || email == ""){
+				alert("아이디와 이메일을 확인해주세요");
+			}else{
+				let signUpconfirm = confirm("정말로 가입하시겠습니까");
+				
+				document.getElementById("regform").style.display = "none";
+				document.getElementById("rname").innerHTML = name;
+				document.getElementById("remail").innerHTML = email;
+				document.getElementById("result").setAttribute("style", "display : block; background-color: khaki;");
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>회원 가입</h2>
+	<hr>
+	<div id="regform">
+		<form name="form1">
+			<label>이름</label>
+			<input type="text" name="name" size="15"><br>
+			<hr>
+			<label>이메일</label>
+			<input type="text" name="email" size="15"><br>
+			<button type="button" onclick="signUp()">가입</button>
+		</form>
+	</div>
+	<div id="result" class="result">
+		<h3>가입 정보</h3>
+		<hr>
+		이름: <span id="rname"></span><br>
+		이메일: <span id="remail"></span><br>
+	</div>
+</body>
+<script>
+	document.getElementById("result").style.display = "none";
+</script>
+</html>

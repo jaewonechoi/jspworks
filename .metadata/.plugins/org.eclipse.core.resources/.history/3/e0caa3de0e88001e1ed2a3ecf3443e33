@@ -1,8 +1,0 @@
-package bean;
-
-public class Calculator {
-	
-	public int calculator(int x) {
-		return x * x;
-	}
-}

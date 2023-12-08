@@ -14,7 +14,7 @@ ul li{
 </head>
 <body>
 	<h3>회원 가입</h3>
-	<form action="member02Process.jsp" method="post" name="member">
+	<form action="member03Process.jsp" method="post" name="member">
 		<ul>
 			<li>
 				<label for="uid">아이디</label>
