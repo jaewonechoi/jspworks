@@ -100,8 +100,31 @@ public class MemberDAO {
 		return m;
 	}
 	
+	//로그인 인증(객체:member로 반환)
+	public Member checkLogin(Member m) {
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			String sql = "SELECT * FROM member WHERE id = ? and passwd = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getId());
+			pstmt.setString(2, m.getPasswd());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				//이름을 DB에서 가져옴
+				m.setName(rs.getString("name"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		return m;
+	}
+	
 	//로그인 인증
-	public boolean checkLogin(Member m) {
+	/*public boolean checkLogin(Member m) {
 		try {
 			conn = JDBCUtil.getConnection();
 			String sql = "SELECT * FROM member WHERE id = ? and passwd = ?";
@@ -119,7 +142,7 @@ public class MemberDAO {
 			JDBCUtil.close(conn, pstmt, rs);
 		}
 		return false;
-	}
+	}*/
 	
 	//ID 중복 검사
 	public boolean getDuplicatedID(String id) {

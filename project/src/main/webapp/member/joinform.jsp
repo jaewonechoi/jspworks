@@ -8,30 +8,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/css/join_style.css">
+    <script src="../resources/js/validation.js"></script>
     <title>Join</title>
 </head>
 <body>
 <jsp:include page="../header.jsp" />
     <div id="mid">
         <h3>JOIN</h3>
-        <form action="/join.do" id="mid_form" method="post" name="member">
+        <form action="/insertmember.do" id="mid_form" method="post" name="member">
             <fieldset id="join_info">
                 <legend>Information</legend>
                 <div>
                     <table>
                         <tbody>
                             <tr>
-                                <th for="uid">ID<!-- th안에 버튼을 같이 넣거나, --></th>
+                                <th for="id">ID<!-- th안에 버튼을 같이 넣거나, --></th>
                                 <td>
-                                	<input type="text" id="uid" name="uid">
+                                	<input type="text" id="id" name="id">
 	                                <button type="button" id="btnChk" value="N" 
-	                                	class="btn_check" onclick="checkId()" autofocus>ID 중복확인</button>  <!-- td 안에 같이 넣으시면 됩니당!! -->
+	                                	class="btn_check" onclick="checkId()" autofocus required>ID 중복확인</button>  <!-- td 안에 같이 넣으시면 됩니당!! -->
 	                                <span>(영문 소문자/숫자, 4~20자)</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th for="passwd">PassWord</th>
-                                <td><input type="password" id="passwd" name="passwd" req>
+                                <td><input type="password" id="passwd" name="passwd" required>
                                 <span>(영문 대소문자/숫자/특수문자 포함, 10~20자)</span>
                                 </td>
                             </tr>
@@ -172,7 +173,7 @@
                 </div>
             </fieldset>
             <div class="btnbox">
-                <button type="submit" class="join_btn">JOIN!</button>
+                <button type="button" class="join_btn" onclick="checkMember()">JOIN!</button>
                 <button type="reset" class="reset_btn">Cancel</button>
             </div>
         </form>

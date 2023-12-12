@@ -187,7 +187,7 @@ public class BoardDAO {
 			//db연결
 			conn = JDBCUtil.getConnection();
 			//sql 처리
-			String sql = "INSERT INTO board (bno, title, content, id) "
+			String sql = "INSERT INTO board (bno, title, content, filename, id) "
 					+ "VALUES (seq_bno.NEXTVAL, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, b.getTitle());

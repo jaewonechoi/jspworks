@@ -7,21 +7,21 @@ public class Member implements Serializable{
 
 	private static final long serialVersionUID = 111L;
 	
-	private String uid;
+	private String id;
 	private String passwd;
 	private String name;
 	private String email;
 	private String phone;
 	private Timestamp joinDate;
-	private int zip_code;
+	private String zip_code;
 	private String address;
 	private String detailaddress;
 	
-	public String getUid() {
-		return uid;
+	public String getId() {
+		return id;
 	}
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPasswd() {
 		return passwd;
@@ -53,10 +53,10 @@ public class Member implements Serializable{
 	public void setJoinDate(Timestamp joinDate) {
 		this.joinDate = joinDate;
 	}
-	public int getZip_code() {
+	public String getZip_code() {
 		return zip_code;
 	}
-	public void setZip_code(int zip_code) {
+	public void setZip_code(String zip_code) {
 		this.zip_code = zip_code;
 	}
 	public String getAddress() {

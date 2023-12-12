@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/* 공통 스타일 */
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 1300px;
+    height: 100%;
+    background-color: #fefeee;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+
+/* #mid */
+#mid {
+    background-color: #fff;
+    margin: 30px;
+    margin-bottom: 0;
+    padding-bottom: 100px;
+}
+
+#mid h3 {
+    padding: 50px;
+    text-align: center;
+    background-color: #ffa;    
+}
+
+#board_tb {
+    width: 90%;
+    margin: 40px auto;
+    padding: 0 5px 20px 5px;
+    line-height: 2.5;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#board_tb tbody td:nth-child(2) {
+    text-align: left;
+}
+
+#board_tb thead {
+    background: #ffe;
+    border-bottom: 2px solid #ccc;
+    line-height: 3;
+    font-size: 0.8rem;
+}
+
+.board_no {
+    width: 10%;
+}
+
+.board_title {
+    width: 50%;
+}
+
+.board_writer {
+    width: 15%;
+}
+
+.board_date {
+    width: 20%;
+}
+
+.board_hit {
+    width: 5%;
+}
+
+#board_tb tr, td {
+    border-top: 1px dotted #ccc;
+    border-bottom: 1px dotted #ccc;
+}
+
+#page {
+    text-align: center;
+    margin: 20px;
+}
+
+#page button {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border: 1px solid #aa1;
+    border-radius: 50%;
+    background: #ffe;
+}
+
+#page .arrow {
+    width: 25px;
+    height: 25px;
+}

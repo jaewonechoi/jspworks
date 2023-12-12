@@ -27,15 +27,15 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Member m = new Member();
-				m.setUid(rs.getString("uid"));
+				m.setId(rs.getString("id"));
 				m.setPasswd(rs.getString("passwd"));
 				m.setName(rs.getString("name"));
 				m.setEmail(rs.getString("email"));
 				m.setPhone(rs.getString("phone"));
-				m.setJoinDate(rs.getTimestamp("joinDate"));
-				m.setZip_code(rs.getInt("zip_code"));
+				m.setJoinDate(rs.getTimestamp("joindate"));
+				m.setZip_code(rs.getString("zip_code"));
 				m.setAddress(rs.getString("address"));
-				m.setDetailaddress(rs.getString("detailAdress"));
+				m.setDetailaddress(rs.getString("detailaddress"));
 				
 				memberList.add(m);
 			}
@@ -51,15 +51,15 @@ public class MemberDAO {
 		
 		try {
 			conn = JDBCUtil.getConnection();
-			String sql = "INSERT INTO member(uid, passwd, name, email, phone, zip_code, address, detailaddress) "
-					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO member(id, passwd, name, email, phone, zip_code, address, detailaddress) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, m.getUid());
+			pstmt.setString(1, m.getId());
 			pstmt.setString(2, m.getPasswd());
 			pstmt.setString(3, m.getName());
 			pstmt.setString(4, m.getEmail());
 			pstmt.setString(5, m.getPhone());
-			pstmt.setInt(6, m.getZip_code());
+			pstmt.setString(6, m.getZip_code());
 			pstmt.setString(7, m.getAddress());
 			pstmt.setString(8, m.getDetailaddress());
 			
@@ -75,21 +75,21 @@ public class MemberDAO {
 		Member m = new Member();
 		try {
 			conn = JDBCUtil.getConnection();
-			String sql = "SELECT * FROM member WHERE uid = ?";
+			String sql = "SELECT * FROM member WHERE id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, uid);
 			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				m.setUid(rs.getString("uid"));
+				m.setId(rs.getString("id"));
 				m.setPasswd(rs.getString("passwd"));
 				m.setName(rs.getString("name"));
 				m.setEmail(rs.getString("email"));
 				m.setPhone(rs.getString("phone"));
-				m.setJoinDate(rs.getTimestamp("joinDate"));
-				m.setZip_code(rs.getInt("zip_code"));
+				m.setJoinDate(rs.getTimestamp("joindate"));
+				m.setZip_code(rs.getString("zip_code"));
 				m.setAddress(rs.getString("address"));
-				m.setDetailaddress(rs.getString("detailAdress"));
+				m.setDetailaddress(rs.getString("detailaddress"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

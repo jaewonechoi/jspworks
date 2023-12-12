@@ -95,8 +95,12 @@ public class MainController extends HttpServlet {
 			member.setEmail(email);
 			member.setGender(gender);
 			//db에 저장함
-			mDAO.insertMember(member);
+			mDAO.insertMember(member); 
+			//자동 로그인
+			session.setAttribute("sessionId", member.getId());		//아이디를 가져와서 sessionId(세션이름) 발급
+			session.setAttribute("sessionName", member.getName());	//이름을 가져와서 sessionName(세션이름) 발급
 			
+			//회원 가입후 이동
 			nextPage = "/index.jsp";
 		}else if(command.equals("/memberview.do")) {
 			String id = request.getParameter("id");
@@ -122,10 +126,13 @@ public class MainController extends HttpServlet {
 			m.setId(id);
 			m.setPasswd(passwd);
 			
-			boolean result = mDAO.checkLogin(m);
 			
-			if(result) {
-				session.setAttribute("sessionId", id);
+			Member member = mDAO.checkLogin(m);
+			String name = member.getName();
+			
+			if(name != null) {
+				session.setAttribute("sessionId", id);	//아이디 세션발급
+				session.setAttribute("sessionName", name);	//이름 세션발급
 				//로그인 후 페이지 이동
 				nextPage = "/index.jsp";
 			}else {
@@ -208,12 +215,14 @@ public class MainController extends HttpServlet {
 			//폼 데이터 받기
 			String title = request.getParameter("title");
 			String content = request.getParameter("content");
+			String filename = request.getParameter("filename");
 			//세션 가져오기
 			String id = (String)session.getAttribute("sessionId");
 			//db에 저장
 			Board b = new Board();
 			b.setTitle(title);
 			b.setContent(content);
+			b.setFilename(filename);
 			b.setId(id);
 			//write 메서드 실행
 			bDAO.write(b);

@@ -26,6 +26,18 @@
 						</tr>
 						<tr>
 							<td>
+							<c:choose>
+								<c:when test="${not empty board.filename}">
+									${board.filename}<a href="filedown.do?filename=${board.filename}">&nbsp;[다운로드]</a>
+								</c:when>
+								<c:otherwise>
+									<c:out value="첨부파일: " />
+								</c:otherwise>
+							</c:choose>
+							</td>
+						</tr>
+						<tr>
+							<td>
 								<c:if test="${sessionId eq board.id}">
 								<a href="/updateBoardform.do?bno=${board.bno}">
 									<button type="button">수정</button>
