@@ -49,6 +49,7 @@
 .td_input {
     border: 1px solid #aa1;
     border-left: none;
+    height: 40px;
 }
 
 .login_input {

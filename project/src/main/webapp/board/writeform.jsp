@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기 폼</title>
+<link rel="stylesheet" href="../resources/css/writeform.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />

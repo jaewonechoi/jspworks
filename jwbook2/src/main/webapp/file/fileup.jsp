@@ -21,7 +21,7 @@
 		<table>
 			<tr>
 				<td>설명</td>
-				<td><input type="text" name="title" size="30"></td>
+				<td><input type="text" name="comment" size="30"></td>
 			</tr>
 			<tr>
 				<td>파일1</td>

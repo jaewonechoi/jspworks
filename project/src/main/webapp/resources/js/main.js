@@ -10,7 +10,7 @@ let addInput = document.createElement("input");
 addMsShortcut();
 addTtmMenu();
 addtbMenu();
-
+changeAd();
 moveNav();
 
 function addMsShortcut(){
@@ -45,10 +45,10 @@ function addTtmMenu(){
     let itemsList = [
         { text: "JOIN", link: "/joinform.do" },
         { text: "LOG-IN", link: "/loginform.do" },
-        { text: "MY-PAGE", link: "/mypage.do" },
+        { text: "MY-PAGE", link: "/memberview.do" },
         { text: "BASKET", link: "/basket.do" },
         { text: "ORDER-INQUIRY", link: "/orderinquiry.do" },
-        { text: "BOARD", link: "/board.do" }
+        { text: "BOARD", link: "/boardlist.do" }
     ];
 
     itemsList.forEach(function(item) {
@@ -66,10 +66,9 @@ function addTtmMenu(){
     addInput.id = "search";
     addLi.appendChild(addInput);
     addLi.innerHTML += " 🔍";
-
+    
     // 검색창 목록에 추가
     addUl.appendChild(addLi);
-
     topTopMenu.appendChild(addUl);
 }   
 
@@ -170,20 +169,152 @@ function moveNav(){
         let topNav = document.querySelector("#top-btm");
         let lSideNav = document.querySelector("#scroll_left");
         let rSideNav = document.querySelector("#scroll_right");
-        let lNavBtn = document.querySelector("#left_scroll_btn")
+        let lNavBtn = document.querySelector("#left_scroll_btn");
+
         if (height <= scrollPosition){
             topNav.classList.add('top-btm_fixed');
-            lSideNav.classList.add('fixed');
-            rSideNav.classList.add('fixed');
+
+            lSideNav.style.transition = "position 0.3s ease-in-out, top 0.3s ease-in-out";
+            rSideNav.style.transition = "position 0.3s ease-in-out, top 0.3s ease-in-out";
+            lNavBtn.style.transition = "all 0.3s ease-in-out";
+
+            lSideNav.style.position="fixed";
+            rSideNav.style.position="fixed";
+            lSideNav.style.top="70px";
+            rSideNav.style.top="70px";
             lNavBtn.classList.add('fixed_btn');
             lNavBtn.classList.remove('fix_btn');
-          }
-        else {
+          }else {
             topNav.classList.remove('top-btm_fixed');
-            lSideNav.classList.remove('fixed');
-            rSideNav.classList.remove('fixed');
+
+            lSideNav.style.transition = "position 0.3s ease-in-out, top 0.3s ease-in-out";
+            rSideNav.style.transition = "position 0.3s ease-in-out, top 0.3s ease-in-out";
+            lNavBtn.style.transition = "all 0.3s ease-in-out";
+
+            lSideNav.style.position="absolute";
+            rSideNav.style.position="absolute";
+            lSideNav.style.top="0";
+            rSideNav.style.top="0";
             lNavBtn.classList.remove('fixed_btn');
             lNavBtn.classList.add('fix_btn');
           }
     }
 }
+
+function changeAd(){
+    let nav = document.querySelector("#scroll_left");
+    let addList = [
+        {id: "ad1", link: "/ad1.do", class: "advertisement", src: "resources/images/header/광고_02_advertisement1.jpg"},
+        {id: "ad2", link: "/ad2.do", class: "advertisement", src: "resources/images/header/광고_02_advertisement2.jpg"}
+    ]
+    
+    addList.forEach(function(element){
+        let addDiv = document.createElement("div");
+        let addA = document.createElement("a");
+        let addImg = document.createElement("img");
+
+        addImg.className = element.class;
+        addImg.src = element.src;
+        addA.href = element.link;
+        addDiv.id = element.id;
+
+        addA.appendChild(addImg);
+        addDiv.appendChild(addA);
+        nav.appendChild(addDiv);
+    })
+    
+    let turn = "on";
+    function AdChange(){
+        let ad1 = document.querySelector("#ad1");
+        let ad2 = document.querySelector("#ad2");
+
+        ad1.style.transition = "opacity 1s ease-in-out";
+        ad2.style.transition = "opacity 1s ease-in-out";
+
+        if(turn == "on") {
+            ad1.style.opacity = 0;
+            ad2.style.opacity = 1;
+            turn = "off";
+        }else {
+            ad1.style.opacity = 1;
+            ad2.style.opacity = 0;
+            turn = "on";
+
+        }
+    }
+    setInterval(AdChange, 3500);
+}
+
+function lrBtn (){
+    let btn = document.querySelector("#left_scroll_btn");
+    let nav = document.querySelector("#scroll_left");
+
+        let currentLeft = parseInt(nav.style.left) || 0;
+
+        if (isNaN(currentLeft)) {
+            currentLeft = 0;
+            nav.style.left = currentLeft + "px";
+        }
+
+        let newLeft = currentLeft === 0 ? -200 : 0;
+    
+        nav.style.transition = "left 0.5s ease-in-out";
+        nav.style.left = newLeft + "px";
+        
+        setTimeout(() => {
+            nav.style.transition = "none";
+        }, 500);
+        if(currentLeft == 0){
+            btn.textContent=">";
+        }else{
+            btn.textContent="<";
+        }
+}
+
+function goTop(){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function goBottom(){
+    let height = document.body.scrollHeight;
+    window.scrollTo({ top: height, behavior: "smooth" });
+}
+
+function removeBtn() {
+    let btn = document.querySelector("#go_bottom");
+    let viewportHeight = window.innerHeight;
+    let maxHeight = document.body.offsetHeight;
+    let currentHeight = window.scrollY;
+    let nowHeight = currentHeight + viewportHeight;
+
+    if (maxHeight <= nowHeight) {
+        btn.classList.add("fadeOut");
+        setTimeout(() => {
+            btn.classList.remove("fadeOut");
+        }, 500);
+        btn.style.opacity = "0";
+    } else {
+        setTimeout(() => {
+            btn.classList.add("fadeIn");
+            setTimeout(() => {
+                btn.classList.remove("fadeIn");
+            }, 500);
+            btn.style.opacity = "1";
+        }, 0);
+    }
+}
+
+window.addEventListener("scroll", removeBtn);
+
+document.addEventListener("DOMContentLoaded", function() {
+    let ul = document.querySelector(".ttm-list");
+
+    if (ul) {
+        let loginLi = ul.getElementsByTagName("li");
+
+        if (uid != "null" && loginLi[1]) {
+            loginLi[1].innerHTML = '<a href="/logout.do">LOG-OUT</a>';
+            loginLi[0].remove();
+        }
+    }
+});

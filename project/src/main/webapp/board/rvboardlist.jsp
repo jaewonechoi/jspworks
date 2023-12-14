@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 목록</title>
+<title>Review 게시판</title>
 <link rel="stylesheet" href="../resources/css/boardlist.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<div id="mid">
-			<h3>Notice / Event</h3>
+			<h3>Review</h3>
 			<div class="Board">
 				<table id="board_tb">
 					<thead>

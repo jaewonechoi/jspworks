@@ -33,6 +33,7 @@ public class CosFileUp extends HttpServlet {
 		String encType = "UTF-8";	//파일이름 한글 인코딩
 		DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
 		
+		//5가지 인자
 		MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, policy);
 		
 		//일반 name 속성

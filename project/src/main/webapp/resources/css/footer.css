@@ -1,34 +1,4 @@
 @charset "UTF-8";
-/* 공통 스타일 */
-* {
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-#container {
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: #000;
-}
-
-a:hover {
-    cursor: pointer;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
 /* #bottom */
 #bottom {
     width: 100%;

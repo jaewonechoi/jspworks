@@ -26,7 +26,6 @@ a:hover {
     cursor: pointer;
 }
 
-
 /* #mid */
 #mid {
     background-color: #fff;
@@ -68,7 +67,7 @@ a:hover {
 }
 
 .board_title {
-    width: 50%;
+    width: 40%;
 }
 
 .board_writer {
@@ -87,8 +86,14 @@ a:hover {
     border-top: 1px dotted #ccc;
     border-bottom: 1px dotted #ccc;
 }
+.write{
+	margin: 20px 0 20px 100px;
+}
+.write button{
+	padding: 5px;
+}
 
-#page {
+/*#page {
     text-align: center;
     margin: 20px;
 }
@@ -105,4 +110,4 @@ a:hover {
 #page .arrow {
     width: 25px;
     height: 25px;
-}
+}*/

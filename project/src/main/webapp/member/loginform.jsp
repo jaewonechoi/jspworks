@@ -13,20 +13,20 @@
 		<div id="mid">
 			<h3>LOG IN</h3>
 			<div id="login">
-				<form action="#" id="mid_form">
+				<form action="login.do" method="post" id="mid_form">
 					<table class="login_tb">
 						<tr class="login_tr">
-							<td class="td_text"><span onclick="">ID</span></td>
-							<td class="td_input"><input type="text" class="login_input"></td>
-							<td rowspan="2" class="td_btn"><button class="login_btn">Log
-									In</button></td>
+							<td class="td_text">ID</td>
+							<td class="td_input"><input type="text" class="login_input" name="id"></td>
 						</tr>
 						<tr class="login_tr">
-							<td class="td_text"><span>PW</span></td>
+							<td class="td_text">PW</td>
 							<td class="td_input"><input type="password"
-								class="login_input"></td>
+								class="login_input" name="passwd"></td>
+								<td rowspan="2" class="td_btn"><button class="login_btn">LogIn</button></td>
 						</tr>
 					</table>
+					<div class="error">${error}</div>
 				</form>
 				<div id="find_account">
 					<p>

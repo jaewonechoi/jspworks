@@ -71,13 +71,13 @@ public class MemberDAO {
 		}
 	}
 	
-	public Member getMember(String uid) {
+	public Member getMember(String id) {
 		Member m = new Member();
 		try {
 			conn = JDBCUtil.getConnection();
 			String sql = "SELECT * FROM member WHERE id = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, uid);
+			pstmt.setString(1, id);
 			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
@@ -99,5 +99,26 @@ public class MemberDAO {
 		return m;
 	}
 	
-	
+	//로그인 인증
+	public Member checkLogin(Member m) {
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			String sql = "SELECT * FROM MEMBER WHERE id = ? and passwd = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getId());
+			pstmt.setString(2, m.getPasswd());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				m.setName(rs.getString("name"));
+				System.out.println("로그인 성공" + m.getName());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		return m;
+	}
 }
