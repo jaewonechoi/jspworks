@@ -9,10 +9,10 @@ public class NBoard implements Serializable{
 	   private int nno;
 	   private String ntitle;
 	   private String ncontent;
-	   private String nname;
 	   private String nfilename;
 	   private Timestamp ndate;
 	   private int nhit;
+	   private String id;
 	   
 	public int getNno() {
 		return nno;
@@ -32,12 +32,6 @@ public class NBoard implements Serializable{
 	public void setNcontent(String ncontent) {
 		this.ncontent = ncontent;
 	}
-	public String getNname() {
-		return nname;
-	}
-	public void setNname(String nname) {
-		this.nname = nname;
-	}
 	public String getNfilename() {
 		return nfilename;
 	}
@@ -55,5 +49,11 @@ public class NBoard implements Serializable{
 	}
 	public void setNhit(int nhit) {
 		this.nhit = nhit;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 }

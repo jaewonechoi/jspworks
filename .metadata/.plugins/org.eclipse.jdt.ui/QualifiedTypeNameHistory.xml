@@ -28,4 +28,6 @@
     <fullyQualifiedTypeName name="common.JDBCUtil"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="product.ProductVO"/>
+    <fullyQualifiedTypeName name="product.ProductDAO"/>
 </qualifiedTypeNameHistroy>

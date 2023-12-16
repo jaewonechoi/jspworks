@@ -13,9 +13,9 @@
 					<div class="mini-shortcut">
 						<!-- 상단 좌측 링크 아이콘 -->
 						<ul class="ms-list">
-							<li><i class="fa-brands fa-youtube"></i><a href="https://www.youtube.com" target="_blank"> youtube</a></li>
-							<li><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/" targer="_blank"> instagram</a></li>
-							<li><i class="fa-brands fa-twitter"></i><a href="https://www.twitter.com/" targer="_blank"> twitter</a></li>
+							<li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> youtube</a></li>
+							<li><a href="https://www.instagram.com/" targer="_blank"><i class="fa-brands fa-instagram"></i> instagram</a></li>
+							<li><a href="https://www.twitter.com/" targer="_blank"><i class="fa-brands fa-twitter"></i> twitter</a></li>
 						</ul>
 					</div>
 

@@ -26,12 +26,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${NboardList}" var="nb">
+						<c:forEach items="${nboardList}" var="nb">
 							<tr>
-								<td class="board_no">${nb.bno}</td>
-								<td class="board_title"><a href="/boardview.do">${nb.btitle}</a></td>
-								<td class="board_writer">${nb.nname}</td>
-								<td class="board_date"><fmt:formatDate value="${nb.nDate}"
+								<td class="board_no">${nb.nno}</td>
+								<td class="board_title"><a href="/noticeboardview.do?nno=${nb.nno}">${nb.ntitle}</a></td>
+								<td class="board_writer">notice team</td>
+								<td class="board_date"><fmt:formatDate value="${nb.ndate}"
 									 pattern="yyyy-MM-dd HH:mm:ss"/> </td>
 								<%-- <td class="board_hit">${nb.hit}</td> --%>
 							</tr>
@@ -40,7 +40,7 @@
 				</table>
 			</div>
 			<div class="write">
-				<a href="nwriteform.do">
+				<a href="/noticewriteform.do">
 					<button type="button">글쓰기</button>
 				</a>
 			</div>

@@ -37,4 +37,6 @@ function checkMember(){
 	}else{
 		form.submit();
 	}
+	
+	
 }

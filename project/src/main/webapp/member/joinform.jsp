@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="widlabel=device-widlabel, initial-scale=1.0">
 <link rel="stylesheet" href="../resources/css/join_style.css">
 <script src="../resources/js/validation.js"></script>
 <title>Join</title>
@@ -15,7 +15,7 @@
 	<jsp:include page="../header.jsp" />
 	<div id="mid">
 		<h3>JOIN</h3>
-		<form action="/insertmember.do" id="mid_form" method="post"
+		<form action="/insertmember.do" id="mid_form" melabelod="post"
 			name="member">
 			<fieldset id="join_info">
 				<legend>Information</legend>
@@ -23,7 +23,7 @@
 					<table>
 						<tbody>
 							<tr>
-								<th for="id">ID<!-- th안에 버튼을 같이 넣거나, --></th>
+								<label for="id">ID<!-- label안에 버튼을 같이 넣거나, --></label>
 								<td><input type="text" id="id" name="id">
 									<button type="button" id="btnChk" value="N" class="btn_check"
 										onclick="checkId()" autofocus>ID 중복확인</button> <!-- td 안에 같이 넣으시면 됩니당!! -->
@@ -31,31 +31,31 @@
 									<span>(영문 소문자/숫자, 8~14자)</span></td>
 							</tr>
 							<tr>
-								<th for="passwd">PassWord</th>
+								<label for="passwd">PassWord</label>
 								<td><input type="password" id="passwd" name="passwd"
 									required> <span>(영문 대소문자/숫자/특수문자 포함, 10~20자)</span></td>
 							</tr>
 							<tr>
-								<th for="passwd2">Confirm PW</th>
+								<label for="passwd2">Confirm PW</label>
 								<td><input type="password" id="passwd2" name="passwd2"
 									placeholder="비밀번호를 동일하게 입력해 주세요."></td>
 							</tr>
 							<tr>
-								<th for="name">Name</th>
+								<label for="name">Name</label>
 								<td><input type="text" id="name" name="name"
 									placeholder="이름은 한글로 입력해주세요."></td>
 							</tr>
 							<tr>
-								<th for="phone">Phone</th>
+								<label for="phone">Phone</label>
 								<td><input type="text" id="phone" name="phone"
 									placeholder="' - ' 빼고 입력해주세요."></td>
 							</tr>
 							<tr>
-								<th for="email">E-mail</th>
+								<label for="email">E-mail</label>
 								<td><input type="text" id="email" name="email"></td>
 							</tr>
 							<tr>
-								<th for="zip_code">Address</th>
+								<label for="zip_code">Address</label>
 								<td><input type="text" size="5" id="zip_code"
 									name="zip_code">
 									<button type="button">우편번호</button> <span>Zip Code</span></td>

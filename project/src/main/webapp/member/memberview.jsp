@@ -45,14 +45,16 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<a href="main.do">
-								<button>목록</button>
-							</a>
-							<a href="main.do">
+							<c:if test="${sessionId eq member.id}">
+							<a href="">
 								<button>수정</button>
 							</a>
-							<a href="main.do">
+							<a href="">
 								<button>탈퇴</button>
+							</a>
+							</c:if>
+							<a href="main.do">
+								<button>목록</button>
 							</a>
 						</td>
 					</tr>

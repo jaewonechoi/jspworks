@@ -30,7 +30,6 @@ public class NoticeBoardDAO {
 				nb.setNno(rs.getInt("nno"));
 				nb.setNtitle(rs.getString("ntitle"));
 				nb.setNcontent(rs.getString("ncontent"));
-				nb.setNname(rs.getString("nname"));
 				nb.setNfilename(rs.getString("nfilename"));
 				nb.setNdate(rs.getTimestamp("ndate"));
 				nb.setNhit(rs.getInt("nhit"));
@@ -51,12 +50,11 @@ public class NoticeBoardDAO {
 		
 		try {
 			conn = JDBCUtil.getConnection();
-			String sql = "insert into notice(nno, ntitle, ncontent, nname) "
-					+ "VALUES (seq_nno.NEXTVAL, ?, ?, ?)";
+			String sql = "insert into notice(nno, ntitle, ncontent) "
+					+ "VALUES (seq_nno.NEXTVAL, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, nb.getNtitle());
 			pstmt.setString(2, nb.getNcontent());
-			pstmt.setString(3, nb.getNname());
 			
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -64,5 +62,31 @@ public class NoticeBoardDAO {
 		} finally {
 			JDBCUtil.close(conn, pstmt);
 		}
+	}
+	
+	public NBoard getNBoard(int nno) {
+		NBoard nb = new NBoard();
+		try {
+			conn = JDBCUtil.getConnection();
+			String sql = "SELECT * FROM notice WHERE nno = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, nno);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {	//검색한 데이터가 있으면
+				nb.setNno(rs.getInt("nno"));
+				nb.setNtitle(rs.getString("ntitle"));
+				nb.setNcontent(rs.getString("ncontent"));
+				nb.setNfilename(rs.getString("nfilename"));
+				nb.setNdate(rs.getTimestamp("ndate"));
+				nb.setNhit(rs.getInt("nhit"));
+				nb.setId(rs.getString("id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		return nb;
 	}
 }

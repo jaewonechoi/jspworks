@@ -10,16 +10,16 @@
 <body>
 	<jsp:include page="../header.jsp" />
 	<div id="container">
-		<section id="nwriteform">
-			<h2>글쓰기</h2>
-			<form action="/write.do" method="post">
+		<section id="writeform">
+			<h2>Q&A 글쓰기</h2>
+			<form action="/qaboardwrite.do" method="post">
 				<table>
 					<tbody>
 						<tr>
-							<td><input type="text" name="ntitle" placeholder="글제목" required></td>
+							<td><input type="text" name="qtitle" placeholder="글제목" required></td>
 						</tr>
 						<tr>
-							<td><textarea rows="7" cols="100" name="ncontent" placeholder="글내용"></textarea></td>
+							<td><textarea rows="7" cols="100" name="qcontent" placeholder="글내용"></textarea></td>
 						</tr>
 						<tr>
 							<td>

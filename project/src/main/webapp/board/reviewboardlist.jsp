@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Q&A 게시판</title>
+<title>리뷰 게시판</title>
 <link rel="stylesheet" href="../resources/css/boardlist.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<div id="mid">
-			<h3>Q&A</h3>
+			<h3>Review</h3>
 			<div class="Board">
 				<table id="board_tb">
 					<thead>
@@ -26,13 +26,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${qaboardList}" var="qab">
+						<c:forEach items="${rboardList}" var="rb">
 							<tr>
-								<td class="board_no">${qab.qno}</td>
-								<td class="board_title"><a href="/qaboardview.do?qno=${qab.qno}">${qab.qtitle}</a></td>
-								<td class="board_writer">${qab.id}</td>
-								<td class="board_date"><fmt:formatDate value="${qab.qdate}"
-									 pattern="yyyy-MM-dd HH:mm:ss"/>	</td>
+								<td class="board_no">${rb.rno}</td>
+								<td class="board_title"><a href="/reviewboardview.do?rno=${rb.rno}">${rb.rtitle}</a></td>
+								<td class="board_writer">${rb.id}</td>
+								<td class="board_date"><fmt:formatDate value="${rb.rdate}"
+									 pattern="yyyy-MM-dd HH:mm:ss"/> </td>
 								<%-- <td class="board_hit">${nb.hit}</td> --%>
 							</tr>
 						</c:forEach>
@@ -40,7 +40,7 @@
 				</table>
 			</div>
 			<div class="write">
-				<a href="/qawriteform.do">
+				<a href="/reviewwriteform.do">
 					<button type="button">글쓰기</button>
 				</a>
 			</div>

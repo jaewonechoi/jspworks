@@ -8,26 +8,19 @@ public class RBoard implements Serializable{
 	private static final long serialVersionUID = 125L;
 
 	private int rno;
-	private String rtype;
 	private String rtitle;
 	private Timestamp rdate;
 	private String rcontent;
 	private String rfilename;
 	private int rrate;
 	private int likes;
-	private String receipt;
+	private String id;
 	
 	public int getRno() {
 		return rno;
 	}
 	public void setRno(int rno) {
 		this.rno = rno;
-	}
-	public String getRtype() {
-		return rtype;
-	}
-	public void setRtype(String rtype) {
-		this.rtype = rtype;
 	}
 	public String getRtitle() {
 		return rtitle;
@@ -65,10 +58,10 @@ public class RBoard implements Serializable{
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	public String getReceipt() {
-		return receipt;
+	public String getId() {
+		return id;
 	}
-	public void setReceipt(String receipt) {
-		this.receipt = receipt;
+	public void setId(String id) {
+		this.id = id;
 	}
 }

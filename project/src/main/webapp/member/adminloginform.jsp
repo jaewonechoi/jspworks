@@ -11,7 +11,7 @@
 	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<div id="mid">
-			<h3>LOG IN</h3>
+			<h3>ADMIN LOG IN</h3>
 			<div id="login">
 				<form action="/j_security_check" method="post" id="mid_form">
 					<table class="login_tb">
